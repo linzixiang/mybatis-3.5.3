@@ -280,13 +280,18 @@ public class MapperMethod {
     private final boolean returnsVoid;
     private final boolean returnsCursor;
     private final boolean returnsOptional;
+    // 方法返回的类型
     private final Class<?> returnType;
     private final String mapKey;
+    // ResultHandler参数所在位置下标
     private final Integer resultHandlerIndex;
+    // RowBounds参数所在位置下标
     private final Integer rowBoundsIndex;
+    // 方法参数解析
     private final ParamNameResolver paramNameResolver;
 
     public MethodSignature(Configuration configuration, Class<?> mapperInterface, Method method) {
+      // 获取方法返回的类型
       Type resolvedReturnType = TypeParameterResolver.resolveReturnType(method, mapperInterface);
       if (resolvedReturnType instanceof Class<?>) {
         this.returnType = (Class<?>) resolvedReturnType;

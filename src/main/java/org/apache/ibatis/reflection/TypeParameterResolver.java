@@ -43,6 +43,7 @@ public class TypeParameterResolver {
   /**
    * @return The return type of the method as {@link Type}. If it has type parameters in the declaration,<br>
    *         they will be resolved to the actual runtime {@link Type}s.
+   * 获取方法的返回值类型
    */
   public static Type resolveReturnType(Method method, Type srcType) {
     Type returnType = method.getGenericReturnType();
